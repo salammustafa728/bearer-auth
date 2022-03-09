@@ -5,11 +5,11 @@ In this repo we make a basic signIn and SighUp backend server using Bearer Auth,
 
 ## links
 
-* [PR Link]()
+* [PR Link](https://github.com/salammustafa728/bearer-auth/pull/1)
 
-* [action]()
+* [action](https://github.com/salammustafa728/bearer-auth/actions)
 
-* [heroku]()
+* [heroku](https://salam-bearer-auth.herokuapp.com/)
 
 
 ### UML diagram 
