@@ -27,7 +27,8 @@ User.authenticateBasic = async function (username,password) {
         const user = await this.findOne({where:{username:username}});
         const valid = await bcrypt.compare(password,user.password);
         if(valid) {
-            let newToken = jwt.sign({ name: userSigned.name }, SECRET, { expiresIn: '15 min' });
+            let newToken = jwt.sign({ username:user.username }, SECRET, { expiresIn: '15 min' });
+            // let newToken = jwt.sign({username:user.username},SECRET);
             user.token = newToken;
             return user;
         } else {
