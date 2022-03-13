@@ -8,21 +8,22 @@ const { db } = require('../src/models/index');
 
 const mockRequest = supertest(server);
 
+
+
+beforeAll(async () => {
+  await db.sync();
+  // done();
+});
+afterAll(async () => {
+  await db.drop();
+  // done();
+});
+
 let users = {
   admin: { username: 'admin', password: 'password' },
   editor: { username: 'editor', password: 'password' },
   user: { username: 'user', password: 'password' },
 };
-
-beforeAll(async (done) => {
-  await db.sync();
-  done();
-});
-afterAll(async (done) => {
-  await db.drop();
-  done();
-});
-
 
 describe('Auth Router', () => {
 
@@ -39,7 +40,7 @@ describe('Auth Router', () => {
         expect(userObject.token).toBeDefined();
         expect(userObject.user.id).toBeDefined();
         expect(userObject.user.username).toEqual(users[userType].username)
-        done();
+        // done();
       });
 
       it('can signin with basic', async (done) => {
@@ -104,7 +105,7 @@ describe('Auth Router', () => {
 
         // First, use basic to login to get a token
         const bearerResponse = await mockRequest
-          .get('/users')
+          .get('/secretstafff')
           .set('Authorization', `Bearer foobar`)
 
         // Not checking the value of the response, only that we "got in"

@@ -1,22 +1,23 @@
 'use strict';
 
 const middleware = require('../src/middleware/basic');
-const { db, users } = require('../src/models/index');
+const { db, User } = require('../src/models/index');
+
+
+// Pre-load our database with fake users
+beforeAll(async () => {
+  await db.sync();
+  await User.create(userInfo.admin);
+  // done();
+});
+afterAll(async () => {
+  await db.drop();
+  // done();
+})
 
 let userInfo = {
   admin: { username: 'admin-basic', password: 'password' },
 };
-
-// Pre-load our database with fake users
-beforeAll(async (done) => {
-  await db.sync();
-  await users.create(userInfo.admin);
-  done();
-});
-afterAll(async (done) => {
-  await db.drop();
-  done();
-})
 
 describe('Auth Middleware', () => {
 

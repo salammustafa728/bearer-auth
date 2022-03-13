@@ -5,16 +5,32 @@ const cors = require('cors');
 const app = express();
 const errorHandler = require('./handler/500');
 const notfound = require('./handler/404');
-
+//Routes data
 const signupRoutes = require('./routes/auth/signup');
-const routerSignin = require('./routes/auth/signin');
-const secretStaffRoute = require('./routes/auth/secretstuff');
+const basicAuthMiddleware = require('./middleware/basic');
+const bearerAuth = require('./middleware/bearer');
+const { User } = require('./models/index');
 
 app.use(express.json());
 app.use(cors());
+
+//rotes
+
 app.use(signupRoutes);
-app.use(routerSignin);
-app.use(secretStaffRoute);
+app.post('/signin',basicAuthMiddleware(User),signinHandlerFunc);
+app.get('/secretstafff', bearerAuth(User), userHandler)
+
+// app.use(secretStaffRoute);
+
+function signinHandlerFunc(req,res){
+    res.status(200).json(req.user);
+}
+
+
+function userHandler(req,res){
+  res.status(200).json(req.user);
+}
+
 
 function start(port) {
     app.listen(port, () => {

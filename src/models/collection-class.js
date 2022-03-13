@@ -15,20 +15,20 @@ class Collection{
             console.log('error in create new data signup ',this.model.name);
         }
     }
-    async createUserSignin(objName){
-        try{
-            if(objName){
-               let name = await this.model.findOne({where:{username:objName}});
-               console.log('namemodel',name);
-                return name;
-            }else{
-                return await this.model.findAll();
-            }
+    // async createUserSignin(objName){
+    //     try{
+    //         if(objName){
+    //            let name = await this.model.findOne({where:{username:objName}});
+    //            console.log('namemodel',name);
+    //             return name;
+    //         }else{
+    //             return await this.model.findAll();
+    //         }
            
-        } catch{
-            console.log('error in signin new data  ',this.model.name);
-        }
-    }
+    //     } catch{
+    //         console.log('error in signin new data  ',this.model.name);
+    //     }
+    // }
 }
 
 module.exports = Collection;
