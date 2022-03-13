@@ -5,7 +5,7 @@ In this repo we make a basic signIn and SighUp backend server using Bearer Auth,
 
 ## links
 
-* [PR Link](https://github.com/salammustafa728/bearer-auth/pull/1)
+* [PR Link](https://github.com/salammustafa728/bearer-auth/pull/3)
 
 * [action](https://github.com/salammustafa728/bearer-auth/actions)
 
