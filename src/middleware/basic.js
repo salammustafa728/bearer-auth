@@ -12,8 +12,7 @@ module.exports =(User) => async(req,res, next)  => {
         let decoded = base64.decode(encodedPart); 
         console.log('decoded >>> ',decoded);
         let [username,password]= decoded.split(':'); 
-       
-
+        
         User.authenticateBasic(username,password).then(validUser=>{
             req.user = validUser;
             next();
