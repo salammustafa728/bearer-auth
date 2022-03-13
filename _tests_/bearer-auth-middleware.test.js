@@ -3,7 +3,7 @@
 process.env.SECRET = "toes";
 
 const middleware = require('../src/middleware/bearer');
-const { db, users } = require('../src/models/index');
+const { db, User } = require('../src/models/index');
 const jwt = require('jsonwebtoken')
 
 let userInfo = {
@@ -11,14 +11,14 @@ let userInfo = {
 };
 
 // Pre-load our database with fake users
-beforeAll(async (done) => {
+beforeAll(async () => {
   await db.sync();
-  await users.create(userInfo.admin);
-  done();
+  await User.create(userInfo.admin);
+  // done();
 });
-afterAll(async (done) => {
+afterAll(async () => {
   await db.drop();
-  done();
+  // done();
 });
 
 describe('Auth Middleware', () => {

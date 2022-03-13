@@ -1,15 +1,15 @@
-'use strict';
+// 'use strict';
 
-const express = require('express');
-const secretStaffRoute = express.Router();
-const bearerAuth = require('../../middleware/bearer');
+// const express = require('express');
+// const secretStaffRoute = express.Router();
+// const bearerAuth = require('../../middleware/bearer');
+// const {User} = require('../../models/index');
+
+// secretStaffRoute.get('./secretstuff',bearerAuth(User),userHandler);
+
+// function userHandler(req,res){
+//     res.status(200).json(req.user);
+// }
 
 
-secretStaffRoute.get('./secretstuff',bearerAuth,userHandler);
-
-function userHandler(req,res){
-    res.status(200).json(req.Users);
-}
-
-
-module.exports = secretStaffRoute;
+// module.exports = secretStaffRoute;

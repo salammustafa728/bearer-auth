@@ -27,6 +27,6 @@ let userCollect = new Collection(userModel);
 
 module.exports = {
     db: sequelize,
-    userModel: userModel,
+    User: userModel,
     userCollection:userCollect    
 }
